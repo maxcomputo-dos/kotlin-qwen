@@ -1,0 +1,35 @@
+{
+  "name": "PokeClaw - Android + Kotlin + Java 21 + Node.js + pnpm + Qwen",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "fwcd.kotlin",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-gradle",
+        "mathiasfrohlich.Kotlin",
+        "adelphes.android-dev-ext",
+        "formulahendry.code-runner",
+        "naco-siren.gradle-language",
+        "sethjones.kotlin-on-vscode",
+        "DavidAnson.vscode-markdownlint"
+      ],
+      "settings": {
+        "kotlin.languageServer.enabled": true,
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-21",
+            "path": "/usr/local/java"
+          }
+        ],
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "postCreateCommand": "echo '✅ Entorno listo: Java 21, Gradle 9.3.1, Android SDK, Node.js, pnpm, Qwen CLI' && chmod +x inicio.sh && qwen --version",
+  "postStartCommand": "bash inicio.sh",
+  "forwardPorts": [8080],
+  "remoteUser": "node"
+}
